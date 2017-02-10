@@ -1,26 +1,30 @@
+$(function () {
+  $('#add-file').change(function () {
+    var $files = $('input:file')[0].files
+    console.log("input", $files)
 
-$(function(){
-$('#input-file').change(function () {
-  var $files = $('input:file')[0].files
-  console.log("input", $files)
+    function readAndPreview(file) {
+      var reader = new FileReader()
+      console.log('reader', reader)
 
-  function readAndPreview(file) {
-    var reader = new FileReader()
-    console.log('reader', reader)
-    reader.addEventListener('load',function () {
+      reader.onload = function () {
+        var image = new Image()
+        image.src = this.result
+        $('.preview').append('<div class="single-image-preview"><img src="' + image.src + '"/><div class="change-image">Zmień zdjęcie</div><div class="remove-image">Usuń zdjęcie</div></div>')
+        console.log("image", image)
+        console.log("this", this)
+      }
 
-      var image = new Image()
-      image.title=file.name
-      image.src = this.result
-      $('.preview-files').append(image)
-    }, false)
 
-    reader.readAsDataURL(file)
-  }
-  if ($files) {
-    [].forEach.call($files, readAndPreview)
-  }
+      reader.readAsDataURL(file)
 
-})
+    }
+
+    if ($files) {
+      [].forEach.call($files, readAndPreview)
+
+    }
+
+  })
 
 })
