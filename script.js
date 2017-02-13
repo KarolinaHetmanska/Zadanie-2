@@ -13,25 +13,26 @@ $(function () {
           var image = new Image()
           image.src = this.result
           $('.preview').append('<div class="single-image-preview"><img src="' + image.src + '"/><label for="add-file" class="change-image">Zmień zdjęcie</label><div class="remove-image">Usuń zdjęcie</div></div>')
+          //  $('[data-id=exchange]').remove()
           //   console.log("image", image)
           //   console.log("this", this)
         }
         reader.readAsDataURL(file)
       }
-
       readAndPreview($files[i])
     }
   })
 
+
   $(document).on('click', '.remove-image', function () {
     $(this).parent().remove()
-    // console.log(this)
+    //console.log(this)
   })
   $(document).on('click', '.change-image', function () {
-      $(this).siblings('img').remove()
-      console.log('this change', this)
-
-    }
-  )
-
+    $(this).parent().attr('data-label', 'exchange')
+  })
+  $(document).on('change', '#add-file', function () {
+     console.log('co jest w add-file', ($('#add-file').files))
+    $('[data-label=exchange]').remove()
+  })
 })
