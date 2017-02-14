@@ -1,3 +1,26 @@
+input {
+  display: none;
+}
+
+.single-image-preview {
+  height:50px;
+  max-width: 600px;
+  overflow: hidden;
+}
+
 img {
   height: 100px;
+  width: 33%;
+  float: left;
+  position: relative;
 }
+
+.change-image, .remove-image {
+  /*display: inline-block;*/
+  float: left;
+  width: 33%;
+  line-height: 50px;
+  text-align: center;
+}
+
+

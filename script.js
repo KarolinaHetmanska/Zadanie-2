@@ -12,7 +12,7 @@ $(function () {
         reader.onload = function () {
           var image = new Image()
           image.src = this.result
-          $('.preview').append('<div class="single-image-preview"><img src="' + image.src + '"/><label for="add-file" class="change-image">Zmień zdjęcie</label><div class="remove-image">Usuń zdjęcie</div></div>')
+          $('.preview').append('<div class="single-image-preview"><img src="' + image.src + '"/><label for="add-file" class="change-image">Zmień zdjęcie</label><span class="remove-image">Usuń zdjęcie</span></div>')
           $('[data-label=exchange]').remove()
 
           //  $('[data-id=exchange]').remove()
