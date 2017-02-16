@@ -1,18 +1,28 @@
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
 input {
   display: none;
 }
 
 .single-image-preview {
-  height:50px;
+  height: 50px;
   max-width: 600px;
   overflow: hidden;
+  border: 7px solid grey;
+  margin: 10px 0;
+  /*position: relative;*/
 }
 
 img {
-  height: 100px;
+  max-height: 100px;
   width: 33%;
   float: left;
   position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .change-image, .remove-image {
@@ -21,6 +31,13 @@ img {
   width: 33%;
   line-height: 50px;
   text-align: center;
+  font-weight: 600;
 }
 
-
+.change-remove-border {
+  width: 0;
+  border-left: 1px solid darkgrey;
+  height: 36px;
+  float: left;
+  margin: 7px 0;
+}
