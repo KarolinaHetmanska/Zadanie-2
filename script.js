@@ -10,7 +10,9 @@ $(function () {
         reader.onload = function () {
           var image = new Image()
           image.src = this.result
-          $('.preview').append('<div class="single-image-preview"><img src="' + image.src + '"/><label for="add-file" class="change-image">ZMIEŃ ZDJĘCIE</label><span class="change-remove-border"></span><span class="remove-image">USUŃ ZDJĘCIE</span></div>')
+          $('.preview-file').append('<div class="single-file-preview"><div class="image-container"><img src="' + image.src +
+            '"/></div><label for="add-file" class="change-file">ZMIEŃ ZDJĘCIE</label><span class="change-remove-border"' +
+            '></span><span class="remove-file">USUŃ ZDJĘCIE</span></div>')
           $('[data-label=exchange]').remove()
         }
         reader.readAsDataURL(file)
@@ -20,10 +22,10 @@ $(function () {
     }
   })
 
-  $(document).on('click', '.remove-image', function () {
+  $(document).on('click', '.remove-file', function () {
     $(this).parent().remove()
   })
-  $(document).on('click', '.change-image', function () {
+  $(document).on('click', '.change-file', function () {
     $(this).parent().attr('data-label', 'exchange')
   })
 })
